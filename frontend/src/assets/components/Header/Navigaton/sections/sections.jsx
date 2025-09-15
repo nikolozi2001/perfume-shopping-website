@@ -1,8 +1,6 @@
 /////// Climate Svgs
 import Disaster from "./Svgs/Climate/Disaster";
 import Temperature from "./Svgs/Climate/Temperature";
-import Precipitation from "./Svgs/Climate/Precipitation";
-import Emissions from "./Svgs/Climate/Emissions";
 /////// Water Svgs
 import Major from "./Svgs/Water/Major";
 import Protection from "./Svgs/Water/Protection";
@@ -43,18 +41,6 @@ const sections = [
         header_en: "Air Temperature",
         link: "temperature",
         svg: Temperature,
-      },
-      {
-        header_ge: "ატმოსფერული ნალექები",
-        header_en: "Precipitation",
-        link: "precipitation",
-        svg: Precipitation,
-      },
-      {
-        header_ge: "სათბურის აირების გაფრქვევები",
-        header_en: "Greenhouse Gas Emissions",
-        link: "emissions",
-        svg: Emissions,
       },
     ],
   },
