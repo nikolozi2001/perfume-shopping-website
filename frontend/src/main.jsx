@@ -2,12 +2,23 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import routes from "./routes.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import RoutePreloader from "./assets/components/RoutePreloader/RoutePreloader.jsx";
 import "./main.scss";
 
-const router = createBrowserRouter(routes);
+const router = createBrowserRouter(routes, {
+  future: {
+    // Enable future features for better performance
+    v7_relativeSplatPath: true,
+    v7_fetcherPersist: true,
+    v7_normalizeFormMethod: true,
+    v7_partialHydration: true,
+    v7_skipActionErrorRevalidation: true
+  }
+});
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <RouterProvider router={router} />
+    <RoutePreloader />
   </StrictMode>
 );
