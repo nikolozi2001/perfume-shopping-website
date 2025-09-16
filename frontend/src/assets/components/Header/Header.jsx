@@ -13,7 +13,7 @@ const Header = () => {
     ge: {
       title: "იპკურე",
       tagline: "ღია სუნამოების სამყარო",
-      searchPlaceholder: "ძებნა ფრაგრანსების...",
+      searchPlaceholder: "სუნამოების ძებნა...",
     },
 
     en: {
