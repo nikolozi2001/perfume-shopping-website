@@ -10,7 +10,6 @@ import Socials from "../Socials/Socials";
 import LanguageChanger from "../LanguageChanger/LanguageChanger";
 import CurrencySelector from "../CurrencySelector/CurrencySelector";
 import PromotionalBanner from "../PromotionalBanner/PromotionalBanner";
-import FragranceCategories from "./FragranceCategories/FragranceCategories";
 import "./Header.scss";
 import Navigation from "./Navigaton/Navigation";
 
@@ -126,7 +125,6 @@ const Header = () => {
           </div>
         </div>
         <Navigation />
-        <FragranceCategories />
       </header>
     </>
   );
