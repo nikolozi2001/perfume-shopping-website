@@ -5,6 +5,7 @@
 class RoutePerformanceMonitor {
   constructor() {
     this.navigationStart = null;
+    this.currentRoute = null;
     this.routeTimings = new Map();
   }
 
@@ -13,7 +14,7 @@ class RoutePerformanceMonitor {
    */
   startNavigation(routePath) {
     this.navigationStart = performance.now();
-    console.log(`🚀 Starting navigation to: ${routePath}`);
+    this.currentRoute = routePath;
   }
 
   /**
@@ -24,11 +25,9 @@ class RoutePerformanceMonitor {
       const duration = performance.now() - this.navigationStart;
       this.routeTimings.set(routePath, duration);
       
-      console.log(`✅ Navigation to ${routePath} completed in ${duration.toFixed(2)}ms`);
-      
       // Log performance warning if route takes too long
       if (duration > 1000) {
-        console.warn(`⚠️ Slow route detected: ${routePath} took ${duration.toFixed(2)}ms`);
+        // Route took longer than expected - could be logged to analytics instead
       }
       
       this.navigationStart = null;
@@ -68,30 +67,28 @@ class RoutePerformanceMonitor {
     // Measure Largest Contentful Paint (LCP)
     new PerformanceObserver((entryList) => {
       const entries = entryList.getEntries();
-      const lastEntry = entries[entries.length - 1];
-      console.log(`📊 LCP: ${lastEntry.startTime.toFixed(2)}ms`);
+      const _lastEntry = entries[entries.length - 1];
+      // LCP measurement: _lastEntry.startTime
     }).observe({ entryTypes: ['largest-contentful-paint'] });
 
     // Measure First Input Delay (FID)
     new PerformanceObserver((entryList) => {
       const entries = entryList.getEntries();
-      entries.forEach((entry) => {
-        console.log(`📊 FID: ${entry.processingStart - entry.startTime}ms`);
+      entries.forEach(() => {
+        // FID measurement could be tracked here
       });
     }).observe({ entryTypes: ['first-input'] });
 
     // Measure Cumulative Layout Shift (CLS)
     new PerformanceObserver((entryList) => {
-      let clsValue = 0;
+      let _clsValue = 0;
       const entries = entryList.getEntries();
       entries.forEach((entry) => {
         if (!entry.hadRecentInput) {
-          clsValue += entry.value;
+          _clsValue += entry.value;
         }
       });
-      if (clsValue > 0) {
-        console.log(`📊 CLS: ${clsValue.toFixed(4)}`);
-      }
+      // CLS measurement: _clsValue
     }).observe({ entryTypes: ['layout-shift'] });
   }
 
@@ -105,7 +102,7 @@ class RoutePerformanceMonitor {
         if (entry.initiatorType === 'script' || entry.initiatorType === 'link') {
           const duration = entry.responseEnd - entry.startTime;
           if (duration > 500) {
-            console.warn(`🐌 Slow resource: ${entry.name} (${duration.toFixed(2)}ms)`);
+            // Slow resource detected - could be logged to analytics instead
           }
         }
       });
@@ -128,7 +125,7 @@ class RoutePerformanceMonitor {
       } : null
     };
     
-    console.log('📈 Performance Report:', data);
+    // Performance data collected - could be sent to analytics instead
     return data;
   }
 }

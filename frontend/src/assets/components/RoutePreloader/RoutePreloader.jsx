@@ -25,6 +25,11 @@ const RoutePreloader = () => {
 
     // Preload routes on hover for navigation links
     const handleMouseEnter = (event) => {
+      // Ensure target is an Element node that has the closest method
+      if (!event.target || typeof event.target.closest !== 'function') {
+        return;
+      }
+      
       const link = event.target.closest('a[href]');
       if (link) {
         const href = link.getAttribute('href');
@@ -38,11 +43,11 @@ const RoutePreloader = () => {
       }
     };
 
-    // Add hover listeners to navigation
-    document.addEventListener('mouseenter', handleMouseEnter, true);
+    // Add hover listeners to navigation using mouseover (which bubbles)
+    document.addEventListener('mouseover', handleMouseEnter, true);
 
     return () => {
-      document.removeEventListener('mouseenter', handleMouseEnter, true);
+      document.removeEventListener('mouseover', handleMouseEnter, true);
     };
   }, []);
 
