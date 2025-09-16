@@ -1,0 +1,288 @@
+@use "/src/assets/styles/_breakpoints.scss" as *;
+
+.mega-menu {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  margin-top: 0;
+  overflow: hidden;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #d4af37, #f7dc6f, #8b4513);
+  }
+
+  .mega-menu-content {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    .menu-section {
+      h3 {
+        font-family: 'Georgia', serif;
+        font-size: 16px;
+        font-weight: 600;
+        color: #132447;
+        margin-bottom: 16px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #d4af37;
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          width: 30px;
+          height: 2px;
+          background: #8b4513;
+        }
+      }
+    }
+
+    // Categories Section
+    .categories {
+      .category-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .category-card {
+          padding: 12px;
+          background: linear-gradient(135deg, #ffffff, #f8f9fa);
+          border: 1px solid #e9ecef;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: linear-gradient(135deg, #132447, #1a365d);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(19, 36, 71, 0.2);
+          }
+
+          .category-name {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+          }
+
+          .category-description {
+            font-size: 11px;
+            opacity: 0.8;
+            font-style: italic;
+          }
+        }
+      }
+    }
+
+    // Fragrance Notes Section
+    .fragrance-notes {
+      .notes-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .note-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 8px 12px;
+          background: rgba(212, 175, 55, 0.1);
+          border-radius: 6px;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: translateX(4px);
+          }
+
+          .note-name {
+            font-weight: 500;
+            font-size: 13px;
+            color: #132447;
+          }
+
+          .note-type {
+            font-size: 10px;
+            color: #8b4513;
+            background: rgba(139, 69, 19, 0.1);
+            padding: 2px 8px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+          }
+        }
+      }
+    }
+
+    // Collections Section
+    .collections {
+      .collections-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .collection-item {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 10px;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            transform: translateX(4px);
+          }
+
+          .collection-name {
+            font-size: 13px;
+            font-weight: 500;
+          }
+
+          .season-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+
+            &.spring { background: linear-gradient(45deg, #90EE90, #98FB98); }
+            &.summer { background: linear-gradient(45deg, #FFD700, #FFA500); }
+            &.autumn { background: linear-gradient(45deg, #FF6347, #DC143C); }
+            &.winter { background: linear-gradient(45deg, #87CEEB, #4682B4); }
+          }
+
+          &.spring:hover { background: rgba(144, 238, 144, 0.1); }
+          &.summer:hover { background: rgba(255, 215, 0, 0.1); }
+          &.autumn:hover { background: rgba(255, 99, 71, 0.1); }
+          &.winter:hover { background: rgba(135, 206, 235, 0.1); }
+        }
+      }
+    }
+
+    // Brands Section
+    .brands {
+      .brands-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .brand-item {
+          padding: 8px 12px;
+          background: linear-gradient(135deg, #f8f9fa, #ffffff);
+          border: 1px solid #e9ecef;
+          border-radius: 6px;
+          font-size: 12px;
+          font-weight: 500;
+          color: #132447;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          text-align: center;
+
+          &:hover {
+            background: linear-gradient(135deg, #d4af37, #f7dc6f);
+            color: #2c1810;
+            transform: scale(1.02);
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+          }
+        }
+      }
+    }
+  }
+
+  // Responsive design
+  @media only screen and (max-width: 1024px) {
+    .mega-menu-content {
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding: 20px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .mega-menu-content {
+      grid-template-columns: 1fr;
+      gap: 15px;
+      padding: 15px;
+
+      .menu-section h3 {
+        font-size: 14px;
+        margin-bottom: 12px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    margin-top: 4px;
+
+    .mega-menu-content {
+      padding: 12px;
+
+      .categories .category-card {
+        padding: 10px;
+
+        .category-name {
+          font-size: 13px;
+        }
+
+        .category-description {
+          font-size: 10px;
+        }
+      }
+
+      .fragrance-notes .note-item {
+        padding: 6px 10px;
+
+        .note-name {
+          font-size: 12px;
+        }
+
+        .note-type {
+          font-size: 9px;
+          padding: 1px 6px;
+        }
+      }
+
+      .collections .collection-item {
+        padding: 8px;
+
+        .collection-name {
+          font-size: 12px;
+        }
+
+        .season-indicator {
+          width: 10px;
+          height: 10px;
+        }
+      }
+
+      .brands .brand-item {
+        padding: 6px 10px;
+        font-size: 11px;
+      }
+    }
+  }
+}

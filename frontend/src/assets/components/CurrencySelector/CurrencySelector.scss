@@ -1,0 +1,161 @@
+@use "/src/assets/styles/_breakpoints.scss" as *;
+
+.currency-selector {
+  position: relative;
+  
+  .currency-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    min-width: 80px;
+
+    &:hover {
+      border-color: #132447;
+      background-color: #f8f9fa;
+    }
+
+    .currency-info {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      .currency-symbol {
+        font-weight: 600;
+        color: #132447;
+      }
+
+      .currency-code {
+        font-size: 11px;
+        color: #666;
+        text-transform: uppercase;
+      }
+    }
+
+    svg {
+      width: 12px;
+      height: 12px;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  .currency-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 160px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    margin-top: 4px;
+    overflow: hidden;
+
+    .currency-option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      text-align: left;
+
+      &:hover {
+        background-color: #f8f9fa;
+      }
+
+      &.active {
+        background-color: #132447;
+        color: #ffffff;
+
+        .symbol {
+          color: #d4af37;
+        }
+
+        .code {
+          color: #ffffff;
+        }
+
+        .name {
+          color: #e0e0e0;
+        }
+      }
+
+      .symbol {
+        font-size: 16px;
+        font-weight: 600;
+        color: #132447;
+        min-width: 20px;
+      }
+
+      .details {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        .code {
+          font-size: 12px;
+          font-weight: 600;
+          color: #132447;
+          text-transform: uppercase;
+        }
+
+        .name {
+          font-size: 11px;
+          color: #666;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    .currency-toggle {
+      padding: 6px 10px;
+      min-width: 70px;
+
+      .currency-info {
+        gap: 3px;
+
+        .currency-symbol {
+          font-size: 12px;
+        }
+
+        .currency-code {
+          font-size: 10px;
+        }
+      }
+    }
+
+    .currency-dropdown {
+      min-width: 140px;
+
+      .currency-option {
+        padding: 10px;
+
+        .symbol {
+          font-size: 14px;
+        }
+
+        .details {
+          .code {
+            font-size: 11px;
+          }
+
+          .name {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,582 @@
+@use "/src/assets/styles/_breakpoints.scss" as *;
+@use "/src/assets/styles/fragrance-theme.scss" as *;
+
+.brands-page {
+  min-height: 100vh;
+  background: var(--fragrance-cream);
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  // Hero Section
+  .brands-hero {
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    background: linear-gradient(
+      135deg,
+      var(--fragrance-deep-blue) 0%,
+      var(--fragrance-brown) 50%,
+      var(--fragrance-gold) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #ffffff;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+
+      h1 {
+        font-family: var(--font-luxury);
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        letter-spacing: 1px;
+      }
+
+      p {
+        font-size: 1.3rem;
+        font-weight: 300;
+        opacity: 0.95;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        line-height: 1.6;
+      }
+    }
+  }
+
+  // Controls Section
+  .brands-controls {
+    padding: 40px 0;
+    background: #ffffff;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+
+    .controls-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      justify-content: space-between;
+
+      .search-box {
+        flex: 1;
+        min-width: 250px;
+
+        input {
+          width: 100%;
+          padding: 15px 20px;
+          border: 2px solid rgba(212, 175, 55, 0.3);
+          border-radius: 50px;
+          font-size: 16px;
+          background: #ffffff;
+          transition: var(--transition-luxury);
+
+          &:focus {
+            outline: none;
+            border-color: var(--fragrance-gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+          }
+
+          &::placeholder {
+            color: rgba(19, 36, 71, 0.5);
+          }
+        }
+      }
+
+      .filter-tabs {
+        display: flex;
+        gap: 10px;
+        background: rgba(212, 175, 55, 0.1);
+        padding: 5px;
+        border-radius: 30px;
+
+        .filter-tab {
+          padding: 12px 25px;
+          border: none;
+          background: transparent;
+          color: var(--fragrance-deep-blue);
+          font-weight: 500;
+          border-radius: 25px;
+          cursor: pointer;
+          transition: var(--transition-luxury);
+          white-space: nowrap;
+
+          &:hover {
+            background: rgba(212, 175, 55, 0.2);
+          }
+
+          &.active {
+            background: var(--gradient-luxury);
+            color: var(--fragrance-deep-blue);
+            font-weight: 600;
+            box-shadow: var(--shadow-luxury);
+          }
+        }
+      }
+
+      .sort-dropdown {
+        select {
+          padding: 15px 20px;
+          border: 2px solid rgba(212, 175, 55, 0.3);
+          border-radius: 25px;
+          background: #ffffff;
+          color: var(--fragrance-deep-blue);
+          font-size: 16px;
+          font-weight: 500;
+          cursor: pointer;
+          transition: var(--transition-luxury);
+          min-width: 200px;
+
+          &:focus {
+            outline: none;
+            border-color: var(--fragrance-gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+          }
+        }
+      }
+    }
+  }
+
+  // Brands Grid Section
+  .brands-grid-section {
+    padding: 60px 0;
+
+    .brands-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      margin-bottom: 60px;
+
+      .brand-card {
+        background: #ffffff;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        transition: var(--transition-luxury);
+        @include luxury-hover;
+
+        .brand-cover {
+          position: relative;
+          height: 200px;
+          overflow: hidden;
+
+          .cover-image {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+          }
+
+          .heritage-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 8px 16px;
+            background: rgba(212, 175, 55, 0.9);
+            color: var(--fragrance-deep-blue);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(10px);
+          }
+        }
+
+        .brand-info {
+          padding: 30px;
+
+          .brand-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+
+            .brand-logo {
+              margin-right: 15px;
+
+              .logo-placeholder {
+                width: 60px;
+                height: 60px;
+                background: var(--gradient-luxury);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: var(--font-luxury);
+                font-size: 24px;
+                font-weight: 700;
+                color: var(--fragrance-deep-blue);
+                box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+              }
+            }
+
+            .brand-meta {
+              flex: 1;
+
+              .brand-name {
+                font-family: var(--font-luxury);
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: var(--fragrance-deep-blue);
+                margin-bottom: 5px;
+              }
+
+              .brand-origin {
+                color: var(--fragrance-brown);
+                font-size: 14px;
+                font-weight: 500;
+              }
+            }
+          }
+
+          .brand-rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+
+            .stars {
+              .star {
+                font-size: 18px;
+                color: #ddd;
+
+                &.filled {
+                  color: var(--fragrance-gold);
+                }
+              }
+            }
+
+            .rating-value {
+              font-weight: 600;
+              color: var(--fragrance-deep-blue);
+            }
+          }
+
+          .brand-description {
+            color: var(--fragrance-deep-blue);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 14px;
+          }
+
+          .brand-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding: 15px 0;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+
+            .stat {
+              text-align: center;
+
+              .stat-value {
+                display: block;
+                font-size: 24px;
+                font-weight: 700;
+                color: var(--fragrance-gold);
+              }
+
+              .stat-label {
+                font-size: 12px;
+                color: var(--fragrance-brown);
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+              }
+            }
+
+            .specialty {
+              font-size: 12px;
+              color: var(--fragrance-deep-blue);
+              font-weight: 500;
+              font-style: italic;
+            }
+          }
+
+          .brand-actions {
+            display: flex;
+            gap: 10px;
+
+            .view-brand-btn,
+            .shop-btn {
+              flex: 1;
+              padding: 12px 20px;
+              text-align: center;
+              text-decoration: none;
+              border-radius: 25px;
+              font-weight: 600;
+              font-size: 14px;
+              transition: var(--transition-luxury);
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+            }
+
+            .view-brand-btn {
+              background: transparent;
+              color: var(--fragrance-deep-blue);
+              border: 2px solid var(--fragrance-gold);
+
+              &:hover {
+                background: var(--gradient-luxury);
+                transform: translateY(-2px);
+                box-shadow: var(--shadow-luxury);
+              }
+            }
+
+            .shop-btn {
+              background: var(--gradient-luxury);
+              color: var(--fragrance-deep-blue);
+              border: 2px solid transparent;
+
+              &:hover {
+                transform: translateY(-2px);
+                box-shadow: var(--shadow-luxury);
+              }
+            }
+          }
+        }
+
+        &:hover {
+          transform: translateY(-10px);
+          box-shadow: var(--shadow-luxury);
+
+          .brand-cover .cover-image {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--fragrance-deep-blue);
+
+      h3 {
+        font-family: var(--font-luxury);
+        font-size: 2rem;
+        margin-bottom: 15px;
+      }
+
+      p {
+        font-size: 1.1rem;
+        opacity: 0.7;
+      }
+    }
+  }
+
+  // Featured Categories Section
+  .featured-categories {
+    padding: 80px 0;
+    background: var(--gradient-bottle);
+
+    h2 {
+      text-align: center;
+      font-family: var(--font-luxury);
+      font-size: 2.5rem;
+      color: var(--fragrance-deep-blue);
+      margin-bottom: 50px;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: var(--gradient-luxury);
+      }
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+
+      .category-link {
+        text-decoration: none;
+
+        .category-card {
+          position: relative;
+          height: 200px;
+          border-radius: 15px;
+          overflow: hidden;
+          color: #ffffff;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          padding: 30px;
+          transition: var(--transition-luxury);
+          @include luxury-hover;
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+          }
+
+          h3 {
+            position: relative;
+            z-index: 2;
+            font-family: var(--font-luxury);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+          }
+
+          p {
+            position: relative;
+            z-index: 2;
+            font-size: 1rem;
+            opacity: 0.9;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+          }
+
+          &.women {
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+          }
+
+          &.men {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+          }
+
+          &.gifts {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+          }
+
+          &:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-luxury);
+
+            &::before {
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Responsive Design
+  @media only screen and (max-width: 768px) {
+    .brands-hero {
+      height: 50vh;
+      min-height: 350px;
+
+      .hero-content {
+        h1 {
+          font-size: 2.5rem;
+        }
+
+        p {
+          font-size: 1.1rem;
+        }
+      }
+    }
+
+    .brands-controls {
+      .controls-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+
+        .search-box {
+          min-width: auto;
+        }
+
+        .filter-tabs {
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .sort-dropdown select {
+          min-width: auto;
+          width: 100%;
+        }
+      }
+    }
+
+    .brands-grid-section .brands-grid {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .featured-categories .categories-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    .brands-hero .hero-content {
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    .brands-grid-section .brands-grid {
+      grid-template-columns: 1fr;
+      gap: 25px;
+
+      .brand-card .brand-info {
+        padding: 20px;
+
+        .brand-actions {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+    }
+
+    .featured-categories .categories-grid .category-link .category-card {
+      height: 150px;
+      padding: 20px;
+
+      h3 {
+        font-size: 1.3rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}

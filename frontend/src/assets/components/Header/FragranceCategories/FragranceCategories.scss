@@ -1,0 +1,100 @@
+@use "/src/assets/styles/_breakpoints.scss" as *;
+@use "/src/assets/styles/fragrance-theme.scss" as *;
+
+.fragrance-categories {
+  background: var(--gradient-bottle);
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+  padding: 12px 0;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gradient-luxury);
+    opacity: 0.3;
+  }
+
+  .categories-container {
+    padding: 0 120px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .category-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 16px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 249, 250, 0.8));
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 20px;
+      color: var(--fragrance-deep-blue);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      font-family: var(--font-modern);
+      transition: var(--transition-luxury);
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transition: left 0.5s ease;
+      }
+
+      &:hover {
+        background: var(--gradient-luxury);
+        color: var(--fragrance-deep-blue);
+        border-color: var(--fragrance-gold);
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: var(--shadow-luxury);
+        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+
+        &::before {
+          left: 100%;
+        }
+      }
+
+      &:active {
+        transform: translateY(-1px) scale(1);
+      }
+    }
+  }
+
+  // Responsive design
+  @media only screen and (max-width: 768px) {
+    .categories-container {
+      padding: 0 20px;
+      gap: 10px;
+
+      .category-pill {
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    .categories-container {
+      gap: 8px;
+
+      .category-pill {
+        padding: 5px 10px;
+        font-size: 11px;
+      }
+    }
+  }
+}

@@ -34,6 +34,25 @@
         }
       }
 
+      &.has-dropdown {
+        // Add hover bridge for dropdown sections
+        &::before {
+          content: '';
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          height: 20px;
+          background: transparent;
+          z-index: 999;
+        }
+
+        &.active {
+          background-color: rgba(255, 255, 255, 0.1);
+          border-radius: 8px 8px 0 0;
+        }
+      }
+
       .nav-item-content {
         display: flex;
         align-items: center;
@@ -47,6 +66,29 @@
 
         &:hover svg {
           transform: rotate(0deg);
+        }
+      }
+
+      // Mega menu wrapper for fragrance section
+      .mega-menu-wrapper {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw;
+        max-width: 1200px;
+        z-index: 1000;
+        
+        // Bridge between nav item and mega menu
+        &::before {
+          content: '';
+          position: absolute;
+          top: -20px;
+          left: 0;
+          right: 0;
+          height: 20px;
+          background: transparent;
+          z-index: 999;
         }
       }
 

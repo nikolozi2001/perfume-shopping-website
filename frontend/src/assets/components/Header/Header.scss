@@ -1,11 +1,14 @@
 @use "/src/assets/styles/_breakpoints.scss" as *;
+@use "/src/assets/styles/fragrance-theme.scss" as *;
 
 header {
-  background-color: #ffffff;
-  color: #1e1e1e;
+  background: linear-gradient(180deg, #ffffff 0%, #fafbfc 100%);
+  color: var(--fragrance-deep-blue);
   position: sticky;
   z-index: 99;
   top: 0;
+  box-shadow: var(--shadow-bottle);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
 
   .header-container {
     padding: 20px 120px;
@@ -34,19 +37,22 @@ header {
           h1 {
             font-feature-settings: "case" on;
             font-size: 13px;
-            color: #132447;
+            color: var(--fragrance-deep-blue);
             text-transform: uppercase;
-            font-family: FiraGOMedium;
+            font-family: var(--font-luxury);
             margin: 0;
             line-height: 1.2;
+            letter-spacing: 1px;
+            text-shadow: 0 1px 2px rgba(212, 175, 55, 0.1);
           }
 
           .tagline {
             font-size: 10px;
-            color: #666;
+            color: var(--fragrance-brown);
             font-style: italic;
-            font-family: FiraGO;
+            font-family: var(--font-luxury);
             line-height: 1.1;
+            opacity: 0.8;
           }
         }
       }
@@ -74,22 +80,25 @@ header {
         .fragrance-search {
           width: 100%;
           padding: 12px 15px 12px 45px;
-          border: 1px solid #e0e0e0;
+          border: 1px solid rgba(212, 175, 55, 0.2);
           border-radius: 25px;
           font-size: 14px;
-          background-color: #f8f9fa;
-          transition: all 0.3s ease;
+          background: var(--gradient-bottle);
+          transition: var(--transition-luxury);
+          font-family: var(--font-modern);
 
           &:focus {
             outline: none;
-            border-color: #132447;
-            background-color: #ffffff;
-            box-shadow: 0 2px 8px rgba(19, 36, 71, 0.1);
+            border-color: var(--fragrance-gold);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
+            transform: translateY(-1px);
           }
 
           &::placeholder {
-            color: #999;
+            color: var(--fragrance-brown);
             font-style: italic;
+            opacity: 0.7;
           }
         }
       }
@@ -100,10 +109,71 @@ header {
       flex: 0 0 auto;
       display: flex;
       align-items: center;
+      gap: 20px;
 
-      .socials {
+      .user-actions {
         display: flex;
-        gap: 20px;
+        gap: 12px;
+        align-items: center;
+
+        .action-btn {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          background: var(--gradient-bottle);
+          border: 1px solid rgba(212, 175, 55, 0.2);
+          border-radius: 50%;
+          cursor: pointer;
+          transition: var(--transition-luxury);
+          color: var(--fragrance-deep-blue);
+          @include luxury-hover;
+
+          &:hover {
+            background: var(--gradient-luxury);
+            color: #ffffff;
+            border-color: var(--fragrance-gold);
+            transform: translateY(-1px) scale(1.05);
+            box-shadow: var(--shadow-luxury);
+          }
+
+          &:active {
+            transform: translateY(0) scale(1);
+          }
+
+          .count-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #dc3545;
+            color: #ffffff;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 10px;
+            min-width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+          }
+        }
+
+        .wishlist-btn:hover .count-badge {
+          background-color: #e74c3c;
+        }
+
+        .cart-btn:hover .count-badge {
+          background-color: #f39c12;
+        }
+      }
+
+      .locale-section {
+        display: flex;
+        gap: 15px;
         align-items: center;
       }
     }
@@ -129,6 +199,17 @@ header {
 
       .user-section {
         order: 2;
+        justify-content: space-between;
+        width: 100%;
+
+        .user-actions {
+          gap: 10px;
+
+          .action-btn {
+            width: 35px;
+            height: 35px;
+          }
+        }
       }
     }
   }
@@ -152,6 +233,28 @@ header {
       .search-section .search-container .fragrance-search {
         padding: 10px 10px 10px 40px;
         font-size: 13px;
+      }
+
+      .user-section {
+        .user-actions {
+          gap: 8px;
+
+          .action-btn {
+            width: 32px;
+            height: 32px;
+
+            .count-badge {
+              font-size: 9px;
+              padding: 1px 4px;
+              min-width: 14px;
+              height: 14px;
+            }
+          }
+        }
+
+        .socials {
+          gap: 15px;
+        }
       }
     }
   }
