@@ -15,113 +15,143 @@ header {
     margin: auto;
     height: 100px;
 
-    .right {
-      display: flex;
-      gap: 15px;
-      align-items: center;
+    // Enhanced Brand Section
+    .brand-section {
+      flex: 0 0 auto;
 
-      .text {
-        margin-top: 12px;
-      }
+      .logo-link {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
 
-      h1 {
-        font-feature-settings: "case" on;
-        font-size: 13px;
-        color: #132447;
-        text-transform: uppercase;
-        width: 40%;
-        font-family: FiraGOMedium;
+        .brand-text {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+
+          h1 {
+            font-feature-settings: "case" on;
+            font-size: 13px;
+            color: #132447;
+            text-transform: uppercase;
+            font-family: FiraGOMedium;
+            margin: 0;
+            line-height: 1.2;
+          }
+
+          .tagline {
+            font-size: 10px;
+            color: #666;
+            font-style: italic;
+            font-family: FiraGO;
+            line-height: 1.1;
+          }
+        }
       }
     }
 
-    .left {
-      display: flex;
-      gap: 100px;
-      align-items: center;
+    // Search Section
+    .search-section {
+      flex: 1;
+      max-width: 400px;
+      margin: 0 40px;
 
-      .texts {
-        display: flex;
-        gap: 15px;
+      .search-container {
+        position: relative;
+        width: 100%;
 
-        .bold {
-          font-weight: 600;
-        }
-
-        a {
-          text-decoration: none;
-          border: 1px solid transparent;
-          color: inherit;
-        }
-
-        a:visited {
-          color: inherit;
-        }
-
-        h1 {
-          font-size: 14px;
-          font-weight: 500;
-          padding: 10px;
-        }
-
-        .choose-section {
-          display: flex;
-          gap: 5px;
-          align-items: center;
-          cursor: pointer;
-        }
-
-        .sections-container {
-          width: max-content;
+        .search-icon {
           position: absolute;
-          top: 100%;
-          background-color: #ffffff;
-          padding: 20px;
-          font-size: 14px;
-          z-index: 1;
-
-          ul {
-            list-style-type: none;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-
-            li {
-              cursor: pointer;
-            }
-
-            li:not(:last-child) {
-              border-bottom: 1px solid #efefef;
-              padding-bottom: 10px;
-            }
-          }
-          p {
-            padding: 15px;
-            border: 1px solid transparent;
-          }
+          left: 15px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: #666;
+          pointer-events: none;
         }
 
-        .sections-container p:hover {
-          background-color: #f2f6ff;
-          border: 1px solid #a0bfff;
-          border-radius: 6px;
+        .fragrance-search {
+          width: 100%;
+          padding: 12px 15px 12px 45px;
+          border: 1px solid #e0e0e0;
+          border-radius: 25px;
+          font-size: 14px;
+          background-color: #f8f9fa;
+          transition: all 0.3s ease;
+
+          &:focus {
+            outline: none;
+            border-color: #132447;
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(19, 36, 71, 0.1);
+          }
+
+          &::placeholder {
+            color: #999;
+            font-style: italic;
+          }
         }
       }
+    }
+
+    // User Section (formerly left)
+    .user-section {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
 
       .socials {
         display: flex;
-        gap: 30px;
+        gap: 20px;
+        align-items: center;
+      }
+    }
+  }
 
-        button {
-          display: flex;
-          font-size: 14px;
-          align-items: center;
-          gap: 12px;
-          padding: 12px;
-          background-color: #ffffff;
-          border: 0.5px solid #a0a0a0;
-          border-radius: 14px;
-          cursor: pointer;
+  // Responsive design
+  @media only screen and (max-width: 768px) {
+    .header-container {
+      padding: 15px 20px;
+      flex-direction: column;
+      gap: 15px;
+      height: auto;
+
+      .search-section {
+        order: 3;
+        margin: 0;
+        max-width: 100%;
+      }
+
+      .brand-section {
+        order: 1;
+      }
+
+      .user-section {
+        order: 2;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    .header-container {
+      .brand-section .logo-link {
+        gap: 10px;
+        
+        .brand-text {
+          h1 {
+            font-size: 11px;
+          }
+          
+          .tagline {
+            font-size: 9px;
+          }
         }
+      }
+
+      .search-section .search-container .fragrance-search {
+        padding: 10px 10px 10px 40px;
+        font-size: 13px;
       }
     }
   }
