@@ -1,15 +1,8 @@
 /////// Climate Svgs
-import Disaster from "./Svgs/Climate/Disaster";
-import Temperature from "./Svgs/Climate/Temperature";
+import Women from "./Svgs/Fragrance/Women";
+import Men from "./Svgs/Fragrance/Men";
 /////// Water Svgs
-import Major from "./Svgs/Water/Major";
-import Protection from "./Svgs/Water/Protection";
-import SupplyAndLosses from "./Svgs/Water/SupplyAndLosses";
-import Trace from "./Svgs/Water/Trace";
-////// Nature Svgs
-import ProtectedAreas from "./Svgs/Nature/ProtectedAreas";
-import ForestArea from "./Svgs/Nature/ForestArea";
-import ForestAndFieldFires from "./Svgs/Nature/ForestAndFieldFires";
+import FragranceSets from "./Svgs/Gift_Sets/FragranceSets";
 
 const sections = [
   {
@@ -19,119 +12,56 @@ const sections = [
     href: "",
   },
   {
-    name_ge: "ჰაერი",
-    name_en: "Air",
+    name_ge: "ბრენდები",
+    name_en: "Brands",
     id: 2,
-    href: "air",
+    href: "brands",
   },
   {
-    name_ge: "კლიმატი",
-    name_en: "Climate",
+    name_ge: "სუნამო",
+    name_en: "Fragrance",
     id: 3,
-    href: "climate",
+    href: "fragrance",
     links: [
       {
-        header_ge: "სტიქიური მოვლენები",
-        header_en: "Natural Disasters",
-        link: "disasters",
-        svg: Disaster,
+        header_ge: "ქალი",
+        header_en: "Women",
+        link: "women",
+        svg: Women,
       },
       {
-        header_ge: "ჰაერის ტემპერატურა",
-        header_en: "Air Temperature",
-        link: "temperature",
-        svg: Temperature,
+        header_ge: "მამაკაცი",
+        header_en: "Men",
+        link: "men",
+        svg: Men,
       },
     ],
   },
   {
-    name_ge: "წყალი",
-    name_en: "Water",
+    name_ge: "სასაჩუქრე ნაკრები",
+    name_en: "Gift Sets",
     id: 4,
-    href: "water",
+    href: "gift_sets",
     links: [
       {
-        header_ge: "ძირითადი მდინარეები, ტბები და წყალსაცავები",
-        header_en: "Major Rivers, Lakes, and Reservoirs",
-        link: "majors",
-        svg: Major,
-      },
-      {
-        header_ge:
-          "წყლის რესურსების დაცვისა და გამოყენების ძირითადი მაჩვენებლები",
-        header_en: "Key indicators of water resource protection and use",
-        link: "protection",
-        svg: Protection,
-      },
-      {
-        header_ge: "წყალმომარაგება და დანაკარგები",
-        header_en: "Water Supply and Losses",
-        link: "supplyandlosses",
-        svg: SupplyAndLosses,
-      },
-      {
-        header_ge: "წყლის მოხმარების კვალი",
-        header_en: "Water Trace",
-        link: "trace",
-        svg: Trace,
+        header_ge: "სუნამოების ნაკრები",
+        header_en: "Fragrance Sets",
+        link: "fragrance_sets",
+        svg: FragranceSets,
       },
     ],
   },
   {
-    name_ge: "ბუნება",
-    name_en: "Nature",
-    id: 5,
-    href: "nature",
-    links: [
-      {
-        header_ge: "დაცული ტერიტორიები",
-        header_en: "Protected Areas",
-        link: "protectedareas",
-        svg: ProtectedAreas,
-      },
-      {
-        header_ge: "ტყის ფართობი",
-        header_en: "Forest Area",
-        link: "forestarea",
-        svg: ForestArea,
-      },
-      {
-        header_ge: "ტყისა და ველის ხანძრები",
-        header_en: "Forest and Field Fires",
-        link: "forestandfieldfires",
-        svg: ForestAndFieldFires,
-      },
-    ],
-  },
-  {
-    name_ge: "გარემოს ეკონომიკური ანგარიშები",
-    name_en: "Environmental Economic Reports",
+    name_ge: "შეთავაზებები",
+    name_en: "Offers",
     id: 6,
-    href: "reports",
+    href: "offers",
   },
   {
-    name_ge: "ენერგია",
-    name_en: "Energy",
+    name_ge: "კონტაქტი",
+    name_en: "Contacts",
     id: 7,
-    href: "energy",
-  },
-  {
-    name_ge: "ტრანსპორტი",
-    name_en: "Transport",
-    id: 8,
-    href: "transport",
-  },
-  {
-    name_ge: "ნარჩენები",
-    name_en: "Waste",
-    id: 9,
-    href: "waste",
-  },
-  {
-    name_ge: "სხვა",
-    name_en: "Other",
-    id: 10,
-    href: "other",
+    href: "contacts",
   },
 ];
 

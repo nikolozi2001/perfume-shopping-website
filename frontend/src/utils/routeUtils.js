@@ -68,15 +68,14 @@ export const preloadRoute = async (routePath) => {
   try {
     // This would map route paths to their lazy-loaded components
     const routeMap = {
-      '/air': () => import('../assets/components/Pages/Air/Air'),
-      '/climate': () => import('../assets/components/Pages/Climate/Climate'),
-      '/water': () => import('../assets/components/Pages/Water/Water'),
-      '/nature': () => import('../assets/components/Pages/Nature/Nature'),
-      '/energy': () => import('../assets/components/Pages/Energy/Energy'),
+      '/brands': () => import('../assets/components/Pages/Brands/Brands.jsx'),
+      '/fragrance': () => import('../assets/components/Pages/Fragrance/Fragrance.jsx'),
+      '/fragrance_sets': () => import('../assets/components/Pages/Gift_Sets/Fragrance_Sets/FragranceSets.jsx'),
+      '/contacts': () => import('../assets/components/Pages/Contacts/Contacts.jsx'),
       '/transport': () => import('../assets/components/Pages/Transport/Transport'),
       '/waste': () => import('../assets/components/Pages/Waste/Waste'),
       '/other': () => import('../assets/components/Pages/Other/Other'),
-      '/reports': () => import('../assets/components/Pages/Reports/Reports'),
+      '/offers': () => import('../assets/components/Pages/Offers/Offers.jsx'),
     };
 
     const loader = routeMap[routePath];

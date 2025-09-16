@@ -12,7 +12,7 @@ const RoutePreloader = () => {
       await new Promise(resolve => setTimeout(resolve, 2000));
       
       // Preload most commonly accessed routes
-      const criticalRoutes = ['/air', '/climate', '/water', '/reports'];
+      const criticalRoutes = ['/brands', '/fragrance', '/gift_sets', '/offers'];
       
       for (const route of criticalRoutes) {
         await preloadRoute(route);
