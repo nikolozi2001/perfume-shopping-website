@@ -34,7 +34,7 @@ const PromotionalBanner = () => {
       {
         id: 1,
         icon: "🌸",
-        text: "Spring Collection 2025 | Free Shipping on Orders $75+",
+        text: "Spring Collection 2025 | Free Shipping on Orders ₾75+",
         highlight: "Spring Collection 2025",
         cta: "Shop Now",
       },

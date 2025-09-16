@@ -810,9 +810,9 @@ const Women = () => {
                     </div>
 
                     <div className="fragrance-pricing">
-                      <span className="current-price">${fragrance.price}</span>
+                      <span className="current-price">₾{fragrance.price}</span>
                       {fragrance.isOnSale && fragrance.originalPrice > fragrance.price && (
-                        <span className="original-price">${fragrance.originalPrice}</span>
+                        <span className="original-price">₾{fragrance.originalPrice}</span>
                       )}
                     </div>
 

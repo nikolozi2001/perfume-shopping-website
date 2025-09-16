@@ -589,9 +589,9 @@ const FragranceSets = () => {
                     </div>
 
                     <div className="set-pricing">
-                      <span className="current-price">${set.price}</span>
+                      <span className="current-price">₾{set.price}</span>
                       {set.isOnSale && set.originalPrice > set.price && (
-                        <span className="original-price">${set.originalPrice}</span>
+                        <span className="original-price">₾{set.originalPrice}</span>
                       )}
                     </div>
 

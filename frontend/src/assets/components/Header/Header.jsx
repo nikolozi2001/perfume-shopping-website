@@ -8,7 +8,6 @@ import ShoppingBagIcon from "./Svgs/ShoppingBagIcon";
 import UserIcon from "./Svgs/UserIcon";
 import Socials from "../Socials/Socials";
 import LanguageChanger from "../LanguageChanger/LanguageChanger";
-import CurrencySelector from "../CurrencySelector/CurrencySelector";
 import PromotionalBanner from "../PromotionalBanner/PromotionalBanner";
 import "./Header.scss";
 import Navigation from "./Navigaton/Navigation";
@@ -120,7 +119,6 @@ const Header = () => {
             <div className="locale-section">
               <Socials />
               <LanguageChanger />
-              <CurrencySelector />
             </div>
           </div>
         </div>

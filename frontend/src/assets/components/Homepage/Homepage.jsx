@@ -224,7 +224,7 @@ const Homepage = () => {
                 <div className="product-info">
                   <span className="brand">{product.brand}</span>
                   <h3 className="product-name">{product.name}</h3>
-                  <div className="price">${product.price}</div>
+                  <div className="price">₾{product.price}</div>
                   <Link to={`/${language}/product/${product.id}`} className="product-cta">
                     {content[language]?.sections.shopNow}
                   </Link>
